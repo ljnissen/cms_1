@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   
 
-  get 'users/new'
-
   root 'demo#index'
   get '/about', to: 'demo#about'
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   resources :users
   
 
