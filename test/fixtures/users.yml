@@ -3,3 +3,8 @@ kalle:
   email: "kanka@ankeborg.se"
   password_digest: "%<%= User.digest('password') %>"
 
+bo:
+  name: "Bo Inge"
+  email: "bo.inge@boude.dk"
+  password_digest: "%<%= User.digest('password') %>"
+
