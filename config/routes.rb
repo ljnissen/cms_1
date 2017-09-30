@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root 'demo#index'
+  #get 'subjects/index', to: 'subjects#index'
+  #get 'subjects/show', to: 'subjects#show'
+  #get 'subjects/new', to: 'subjects#new'
+  #post 'subjects/new', to: 'subjects#new'
+  #post 'subjects/create', to: 'subjects#create'
   get '/about', to: 'demo#about'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -11,6 +16,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
+  resources :subjects
+
+  
   
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,28 @@
+<% provide(:title, 'Create subject') %>
+
+
+	
+  <h1>Create subject</h1>
+<div class = "row">
+	<div class = "col-md-6 col-md-offset-3">
+		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+
+		<%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
+			
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :position %>
+			<%= f.text_field :position, class: 'form-control' %>
+
+			<%= f.label :visible %>
+			<%= f.text_field :visible, class: 'form-control' %>
+
+			<%= f.submit "Create new subject", class: 'btn btn-primary' %>
+
+
+			
+		<% end %>
+	</div>
+</div>
+

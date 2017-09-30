@@ -1,0 +1,28 @@
+<div class="container">
+	<h1>Show Subject</h1>
+	
+
+	<table class="table table-striped">
+		<tr>
+			<th>Name:</th>
+			<td><%= @subject.name %></td>
+		</tr>
+		<tr>
+			<th>Position:</th>
+			<td><%= @subject.position %></td>
+		</tr>
+		<tr>
+			<th>Visible?</th>
+			<td><%= @subject.visible ? 'true' : 'false '%></td>
+		</tr>
+		<tr>
+			<th>Created:</th>
+			<td><%= @subject.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated:</th>
+			<td><%= @subject.updated_at %></td>
+		</tr>
+	</table>
+	<h3>	<%= link_to("Back to list", {:action => 'index'}, :class => 'btn btn-primary', ) %></h3>
+</div>
