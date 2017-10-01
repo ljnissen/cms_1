@@ -1,2 +1,24 @@
-<h1>Subjects#edit</h1>
-<p>Find me in app/views/subjects/edit.html.erb</p>
+<% provide(:title, 'Edit subject') %>
+
+
+	
+  <h1>Edit subject</h1>
+<div class = "row">
+	<div class = "col-md-6 col-md-offset-3">
+		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+
+		<%= form_for(@subject, url: subject_path) do |f| %>
+			
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :position %>
+			<%= f.text_field :position, class: 'form-control' %>
+
+			<%= f.label :visible %>
+			<%= f.text_field :visible, class: 'form-control' %>
+
+			<%= f.submit "Update subject", class: 'btn btn-primary' %>	
+		<% end %>
+	</div>
+</div>
