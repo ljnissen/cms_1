@@ -1,2 +1,43 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% provide(:title, 'All pages') %>
+<h1>All pages</h1>
+
+
+	<div class="row">
+
+		
+		<table class="table table-striped">
+			  <thead>
+				<tr>
+					<th>#</th>
+					<th>Subject_id</th>
+					<th>Page</th>
+					<th>Permalink</th>
+					<th>Visible</th>
+					
+					<th>Actions</th>
+				</tr>
+			  </thead>
+			<% @pages.each do |page| %>
+			<tr>
+				<td><%= page.position %></td>
+				<td><%= page.subject_id %></td>
+				<td><%= page.name %></td>
+				<td><%= page.permalink %></td>
+				<td><%= page.visible ? 'Yes' : 'No' %></td>
+				
+				<td><%= page %></td>
+				<td class="button">
+					<%= link_to("Show", { :action => 'show', :id => page.id }, :class => 'btn btn-primary') %>
+					<%= link_to("Edit", {:action => 'edit', :id => page.id }, :class => 'btn btn-success') %>
+					<%= link_to("Delete", page_path(page), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+					<%= link_to("Add new page", {:action => 'new'}, :class => 'btn btn-info') %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to("Add new page", {:action => 'new'}, :class => 'btn btn-info') %>
+	</div>
+		
+
+
+

@@ -1,19 +1,19 @@
 Rails.application.routes.draw do
   
 
-  get 'pages/index'
+  #get 'pages/index'
 
-  get 'pages/show'
+  #get 'pages/show'
 
-  get 'pages/new'
+  #get 'pages/new'
 
-  get 'pages/create'
+  #get 'pages/create'
 
-  get 'pages/delete'
+  #get 'pages/delete'
 
-  get 'pages/destroy'
+  #get 'pages/destroy'
 
-  get 'sessions/new'
+  #get 'sessions/new'
 
   root 'demo#index'
   #get 'subjects/index', to: 'subjects#index'
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users
   resources :subjects
+  resources :pages
 
   
   
