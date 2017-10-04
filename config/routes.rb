@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
 
   #get 'pages/index'
 
@@ -32,6 +31,7 @@ Rails.application.routes.draw do
   resources :users
   resources :subjects
   resources :pages
+  resources :sections
 
   
   

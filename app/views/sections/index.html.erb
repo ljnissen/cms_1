@@ -1,0 +1,38 @@
+<% provide(:title, 'All sections') %>
+
+
+
+	<div class="row">
+
+		
+		<table class="table table-striped">
+			  <thead>
+				<tr>
+					<th>#</th>
+					<th>Page ID</th>
+					<th>Section</th>
+					<th>Content Type</th>
+					<th>Visible</th>
+					<th>Actions</th>
+				</tr>
+			  </thead>
+			<% @sections.each do |section| %>
+			<tr>
+				<td><%= section.position %></td>
+				<td><%= section.subject_id %></td>
+				<td><%= section.name %></td>
+				<td><%= section.permalink %></td>
+				<td><%= section.visible ? 'Yes' : 'No' %></td>
+				
+				<td><%= section %></td>
+				<td class="button">
+					<%= link_to("Show", { :action => 'show', :id => section.id }, :class => 'btn btn-primary') %>
+					<%= link_to("Edit", {:action => 'edit', :id => section.id }, :class => 'btn btn-success') %>
+					<%= link_to("Delete", section_path(section), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+					<%= link_to("Add new page", {:action => 'new'}, :class => 'btn btn-info') %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to("Add new section", {:action => 'new'}, :class => 'btn btn-info') %>
+	</div>
