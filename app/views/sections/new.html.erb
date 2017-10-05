@@ -1,2 +1,30 @@
-<h1>Sections#new</h1>
-<p>Find me in app/views/sections/new.html.erb</p>
+<% provide(:title, 'Create section') %>
+
+
+	
+  <h1>Create section</h1>
+<div class = "row">
+	<div class = "col-md-6 col-md-offset-3">
+		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+
+		<%= form_for(:page, :url => {:action => 'create'}) do |f| %>
+
+			<%= f.label :page_id, "Page ID" %>
+			<%= f.text_field :page_id, class: 'form-control' %>
+			
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :permalink %>
+			<%= f.text_field :permalink, class: 'form-control' %>
+
+			<%= f.label :visible %>
+			<%= f.text_field :visible, class: 'form-control' %>
+
+			<%= f.submit "Create new section", class: 'btn btn-primary' %>
+
+
+			
+		<% end %>
+	</div>
+</div>
