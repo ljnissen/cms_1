@@ -28,6 +28,14 @@
 			<th>Content:</th>
 			<td><%= @section.content %></td>
 		</tr>
+		<tr>
+			<th>Created at:</th>
+			<td><%= @section.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated at:</th>
+			<td><%= @section.Updated_at %></td>
+		</tr>
 	</table>
 	<h3>	<%= link_to("Back to list", {:action => 'index'}, :class => 'btn btn-primary', ) %></h3>
 </div>

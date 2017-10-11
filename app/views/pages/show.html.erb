@@ -20,6 +20,14 @@
 			<th>Visible?</th>
 			<td><%= @page.visible ? 'true' : 'false '%></td>
 		</tr>
+		<tr>
+			<th>Created at:</th>
+			<td><%= @page.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated at:</th>
+			<td><%= @page.Updated_at %></td>
+		</tr>
 	</table>
 	<h3>	<%= link_to("Back to list", {:action => 'index'}, :class => 'btn btn-primary', ) %></h3>
 </div>
