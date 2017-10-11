@@ -1,0 +1,32 @@
+<% provide(:title, 'Update page') %>
+
+
+	
+  <h1>Update page</h1>
+<div class = "row">
+	<div class = "col-md-6 col-md-offset-3">
+		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+
+		<%= form_for(@page, url: page_path ) do |f| %>
+
+			<%= f.label :subject_id, "Subject ID" %>
+			<%= f.text_field :subject_id, class: 'form-control' %>
+			
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :permalink %>
+			<%= f.text_field :permalink, class: 'form-control' %>
+
+			<%= f.label :visible %>
+			<%= f.text_field :visible, class: 'form-control' %>
+
+			<%= f.submit "Update page", class: 'btn btn-primary' %>
+
+
+			
+		<% end %>
+	</div>
+</div>
+
+
