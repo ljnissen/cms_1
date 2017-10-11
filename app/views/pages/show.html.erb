@@ -1,2 +1,26 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<% provide(:title, 'Show page') %>
+<div class="container">
+	<h1>Show page</h1>
+	
+
+	<table class="table table-striped">
+		<tr>
+			<th>Subject ID:</th>
+			<td><%= @page.subject_id %></td>
+		</tr>
+		<tr>
+			<th>Name:</th>
+			<td><%= @page.name %></td>
+		</tr>
+		<tr>
+			<th>Permalink:</th>
+			<td><%= @page.permalink %></td>
+		</tr>
+		<tr>
+			<th>Visible?</th>
+			<td><%= @page.visible ? 'true' : 'false '%></td>
+		</tr>
+	</table>
+	<h3>	<%= link_to("Back to list", {:action => 'index'}, :class => 'btn btn-primary', ) %></h3>
+</div>
+
