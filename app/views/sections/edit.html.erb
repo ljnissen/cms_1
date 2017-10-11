@@ -1,2 +1,34 @@
-<h1>Sections#edit</h1>
-<p>Find me in app/views/sections/edit.html.erb</p>
+<% provide(:title, 'Update section') %>
+
+
+	
+  <h1>Update section</h1>
+<div class = "row">
+	<div class = "col-md-6 col-md-offset-3">
+		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+
+		<%= form_for(@section, url: section_path) do |f| %>
+			
+			<%= f.label :page_id, "Page ID" %>
+			<%= f.text_field :page_id, class: 'form-control' %>
+			
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+
+			<%= f.label :position %>
+			<%= f.text_field :position, class: 'form-control' %>
+
+			<%= f.label :visible %>
+			<%= f.text_field :visible, class: 'form-control' %>
+
+			<%= f.label :content_type %>
+			<%= f.text_field :content_type, class: 'form-control' %>
+
+			<%= f.label :content %>
+			<%= f.text_area :content, class: 'form-control' %>
+
+			<%= f.submit "Update section", class: 'btn btn-primary' %>	
+		<% end %>
+	</div>
+</div>
+

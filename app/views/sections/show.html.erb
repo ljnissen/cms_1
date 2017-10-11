@@ -1,2 +1,34 @@
-<h1>Sections#show</h1>
-<p>Find me in app/views/sections/show.html.erb</p>
+<% provide(:title, 'Show section') %>
+<div class="container">
+	<h1>Show section</h1>
+	
+
+	<table class="table table-striped">
+		<tr>
+			<th>Page ID:</th>
+			<td><%= @section.page_id %></td>
+		</tr>
+		<tr>
+			<th>Name:</th>
+			<td><%= @section.name %></td>
+		</tr>
+		<tr>
+			<th>Position:</th>
+			<td><%= @section.position %></td>
+		</tr>
+		<tr>
+			<th>Visible?</th>
+			<td><%= @section.visible ? 'true' : 'false '%></td>
+		</tr>
+		<tr>
+			<th>Content type:</th>
+			<td><%= @section.content_type %></td>
+		</tr>
+		<tr>
+			<th>Content:</th>
+			<td><%= @section.content %></td>
+		</tr>
+	</table>
+	<h3>	<%= link_to("Back to list", {:action => 'index'}, :class => 'btn btn-primary', ) %></h3>
+</div>
+
