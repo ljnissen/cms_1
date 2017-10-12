@@ -1,4 +1,8 @@
 class SectionsController < ApplicationController
+  before_action :logged_in_user
+  # before_action :correct_user
+  before_action :admin_user
+
   def index
     @sections = Section.order("position ASC")
   end
@@ -51,4 +55,22 @@ class SectionsController < ApplicationController
   def section_params 
       params.require(:section).permit(:page_id, :name, :position, :permalink, :visible, :content_type, :content)
   end
+
+    # Before filters
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
 end
