@@ -19,14 +19,14 @@
 			<%= f.text_field :position, class: 'form-control' %>
 
 			<%= f.label :visible %>
-			<%= f.text_field :visible, class: 'form-control' %>
+			<%= f.check_box :visible, class: 'form-control' %>
 
 			<%= f.label :content %>
-			<%= f.text_field :content, class: 'form-control' %>
+			<%= f.text_area :content, class: 'form-control' %>
 
-			<%= f.label :content_type %>
-			<%= f.text_field :content_type, class: 'form-control' %>
-
+			<label for "content_type" class="btn btn-primary active">Content type</label>
+			<%= f.radio_button :content_type, 'text', :style => 'display:none;' %> Text
+			<%= f.radio_button :content_type, 'html', class: 'form-control' %> HTML
 			<%= f.submit "Create new section", class: 'btn btn-primary' %>
 
 
