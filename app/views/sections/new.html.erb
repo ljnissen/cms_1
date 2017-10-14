@@ -21,12 +21,14 @@
 			<%= f.label :visible %>
 			<%= f.check_box :visible, class: 'form-control' %>
 
+
+
+			<%= f.label :content_type, 'Content type' %>
+			<%= f.radio_button :content_type, 'text', class: 'form-control' %> Text
+			<%= f.radio_button :content_type, 'html', class: 'form-control' %> HTML
+
 			<%= f.label :content %>
 			<%= f.text_area :content, class: 'form-control' %>
-
-			<label for "content_type" class="btn btn-primary active">Content type</label>
-			<%= f.radio_button :content_type, 'text', :style => 'display:none;' %> Text
-			<%= f.radio_button :content_type, 'html', class: 'form-control' %> HTML
 			<%= f.submit "Create new section", class: 'btn btn-primary' %>
 
 

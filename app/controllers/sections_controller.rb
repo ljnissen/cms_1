@@ -30,7 +30,7 @@ class SectionsController < ApplicationController
   end
 
   def update
-    @section = Section.new(section_params)
+    @section = Section.find(params[:id])
     if @section.update_attributes(section_params)
       flash[:success] = "Section updated successfully."
       redirect_to(:action => 'show', :id => @section.id)

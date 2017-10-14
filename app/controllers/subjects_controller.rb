@@ -30,7 +30,7 @@ class SubjectsController < ApplicationController
   end
 
   def update
-    @subject = Subject.new(subject_params)
+    @subject = Subject.find(params[:id])
     if @subject.update_attributes(subject_params)
       redirect_to(:action => 'show', :id => @subject.id )
     else
