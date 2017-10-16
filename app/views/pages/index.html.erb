@@ -13,7 +13,7 @@
 					<th>Page</th>
 					<th>Permalink</th>
 					<th>Visible</th>
-					
+					<th>Sections</th>
 					<th>Actions</th>
 				</tr>
 			  </thead>
@@ -25,12 +25,11 @@
 				<td><%= page.permalink %></td>
 				<td><%= page.visible ? 'Yes' : 'No' %></td>
 				
-				<td><%= page %></td>
+				<td><%= page.sections.size %></td>
 				<td class="button">
 					<%= link_to("Show", { :action => 'show', :id => page.id }, :class => 'btn btn-primary') %>
 					<%= link_to("Edit", {:action => 'edit', :id => page.id }, :class => 'btn btn-success') %>
 					<%= link_to("Delete", page_path(page), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
-					<%= link_to("Add new page", {:action => 'new'}, :class => 'btn btn-info') %>
 				</td>
 			</tr>
 			<% end %>
