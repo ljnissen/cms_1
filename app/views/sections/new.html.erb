@@ -4,7 +4,7 @@
 	
   <h1>Create section</h1>
 <div class = "row">
-	<div class = "col-md-3 col-md-offset-3">
+	<div class = "col-md-6 col-md-offset-3">
 		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
 
 		<%= form_for(:section, :url => {:action => 'create'}) do |f| %>
@@ -19,31 +19,24 @@
 			<%= f.text_field :position, class: 'form-control' %>
 
 			<%= f.label :visible, 'Visible' %>
-			<%= f.check_box :visible, class: 'form-control' %></br>
 
-
+			<div class="checkbox-inline">
+				<%= f.check_box :visible, class: 'form-control' %><br />
+			</div><br /><br />
 			<%= f.label :content_type, 'Content type' %>
-			Text<%= f.radio_button :content_type, 'text', class: 'fa fa-circle-o-fa-2x' %>
-			HTML<%= f.radio_button :content_type, 'html', class: 'fa fa-circle-o-fa-2x' %><br /><br />
-
+			
+			<div class="radio-inline">
+				
+				<%= f.radio_button :content_type, 'text', class: 'form-control' %> Text
+				
+			</div>
+			<div class="radio-inline">
+				<%= f.radio_button :content_type, 'html', class: 'form-control' %> HTML
+			</div><br /><br />
+			
 			<%= f.label :content, 'Content' %>
 			<%= f.text_area :content, class: 'form-control' %>
 			<%= f.submit "Create new section", class: 'btn btn-primary' %>
-
-
-				<div class="col-xs-12">
-				  <br> Vertical radio:
-				  <br>
-				  <div class="btn-group btn-group-vertical" data-toggle="buttons">
-				    <label class="btn active">
-				      <input type="radio" name='gender1' checked><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Male</span>
-				    </label>
-				    <label class="btn">
-				      <input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Female</span>
-				    </label>
-				  </div>
-
-				</div>
 
 			
 		<% end %>
