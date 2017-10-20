@@ -2,9 +2,10 @@ class PagesController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
   before_action :admin_user
+  before_action :find_subject
   
   def index
-    @pages = Page.order("position ASC")
+    @pages = Page.where(:subject_id => @subject.id).order("position ASC")
   end
 
   def show
@@ -12,14 +13,14 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new
+    @page = Page.new({:subject_id => @subject.id})
   end
 
   def create
     @page = Page.new(page_params)
     if @page.save
       flash[:success] = "New page created."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :subject_id => @subject.id)
     else
       render('new')
     end
@@ -33,7 +34,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     if @page.update_attributes(page_params)
       flash[:success] = "Page updated successfully."
-      redirect_to(:action => 'show', :id => @page.id)
+      redirect_to(:action => 'show', :id => @page.id, :subject_id => @subject.id)
     else
       render('edit')
     end
@@ -46,7 +47,7 @@ class PagesController < ApplicationController
   def destroy
     @page = Page.find(params[:id]).destroy
     flash[:success] = "Page destroyed successfully."
-    redirect_to(:action => 'index')
+    redirect_to(:action => 'index', :subject_id => @subject.id)
   end
 
   private
@@ -72,5 +73,11 @@ class PagesController < ApplicationController
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def find_subject
+      if params[:subject_id]
+        @subject = Subject.find(params[:subject_id])
+      end
     end
 end

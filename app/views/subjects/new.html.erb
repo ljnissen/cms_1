@@ -5,9 +5,9 @@
   <h1>Create subject</h1>
 <div class = "row">
 	<div class = "col-md-6 col-md-offset-3">
-		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+		<%= link_to("Back to list", {:action => 'index', :subject_id => @subject.id}, class: 'btn btn-primary' ) %>
 
-		<%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
+		<%= form_for(:subject, :url => {:action => 'create', :subject_id => @subject.id}) do |f| %>
 			
 			<%= f.label :name %>
 			<%= f.text_field :name, class: 'form-control' %>
