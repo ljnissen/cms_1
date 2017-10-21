@@ -7,7 +7,7 @@
 	<div class = "col-md-6 col-md-offset-3">
 		<%= link_to("Back to list", {:action => 'index', :subject_id => @subject.id }, class: 'btn btn-primary' ) %>
 
-		<%= form_for(@subject, url: subject_path) do |f| %>
+		<%= form_for(@subject, url: subject_path, :subject_id => @subject.id) do |f| %>
 			
 			<%= f.label :name %>
 			<%= f.text_field :name, class: 'form-control' %>

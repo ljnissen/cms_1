@@ -14,6 +14,7 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new({:subject_id => @subject.id})
+    @subjects = Subject.order('position ASC')
   end
 
   def create
@@ -22,6 +23,7 @@ class PagesController < ApplicationController
       flash[:success] = "New page created."
       redirect_to(:action => 'index', :subject_id => @subject.id)
     else
+      @subjects = Subject.order('position ASC')
       render('new')
     end
   end

@@ -27,14 +27,14 @@
 				
 				<td><%= page.sections.size %></td>
 				<td class="button">
-					<%= link_to("Show", { :action => 'show', :id => page.id }, :class => 'btn btn-primary') %>
-					<%= link_to("Edit", {:action => 'edit', :id => page.id }, :class => 'btn btn-success') %>
+					<%= link_to("Show", { :action => 'show', :id => page.id, :subject_id => @subject.id }, :class => 'btn btn-primary') %>
+					<%= link_to("Edit", {:action => 'edit', :id => page.id, :subject_id => @subject.id }, :class => 'btn btn-success') %>
 					<%= link_to("Delete", page_path(page), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
 				</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to("Add new page", {:action => 'new'}, :class => 'btn btn-info') %>
+		<%= link_to("Add new page", {:action => 'new', :subject_id => @subject.id}, :class => 'btn btn-info') %>
 	</div>
 		
 
