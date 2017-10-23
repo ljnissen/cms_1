@@ -13,7 +13,7 @@ class SectionsController < ApplicationController
   end
 
   def new
-    @section = Section.new({:page_id => @page.id}).order('position ASC')
+    @section = Section.new({:page_id => @page.id})
     @pages = Page.order('position ASC')
   end
 
