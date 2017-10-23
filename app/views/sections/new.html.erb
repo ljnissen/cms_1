@@ -5,9 +5,9 @@
   <h1>Create section</h1>
 <div class = "row">
 	<div class = "col-md-6 col-md-offset-3">
-		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
+		<%= link_to("Back to list", {:action => 'index', :page_id => @page.id }, class: 'btn btn-primary' ) %>
 
-		<%= form_for(:section, :url => {:action => 'create'}) do |f| %>
+		<%= form_for(:section, :url => {:action => 'create', :page_id => @page.id }) do |f| %>
 
 			<%= f.label :page_id, "Page ID" %>
 			<%= f.text_field :page_id, class: 'form-control' %>

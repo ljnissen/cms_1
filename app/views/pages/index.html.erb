@@ -27,9 +27,10 @@
 				
 				<td><%= page.sections.size %></td>
 				<td class="button">
+					<%= link_to("View sections", { :controller => 'sections', :page_id => page.id }, :class => 'btn btn-info') %>
 					<%= link_to("Show", { :action => 'show', :id => page.id, :subject_id => @subject.id }, :class => 'btn btn-primary') %>
 					<%= link_to("Edit", {:action => 'edit', :id => page.id, :subject_id => @subject.id }, :class => 'btn btn-success') %>
-					<%= link_to("Delete", page_path(page), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+					<%= link_to("Delete", page_path(page), :subject_id => @subject.id, method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
 				</td>
 			</tr>
 			<% end %>
