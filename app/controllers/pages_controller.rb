@@ -5,7 +5,10 @@ class PagesController < ApplicationController
   before_action :find_subject
   
   def index
-    @pages = Page.where(:subject_id => @subject.id).order("position ASC")
+    @pages = Page.order('position ASC')
+   # @pages = Page.where(:subject_id => @subject.id).order("position ASC")
+   @pages = @subject.pages.order("position ASC")
+
   end
 
   def show

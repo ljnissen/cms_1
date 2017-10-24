@@ -1,4 +1,5 @@
 <% provide(:title, 'All pages') %>
+<%= link_to("Back to subjects", {:controller => 'subjects'}, class: 'btn btn-primary' ) %>
 
 
 
@@ -18,6 +19,7 @@
 				</tr>
 			  </thead>
 			<% @pages.each do |page| %>
+
 			<tr>
 				<td><%= page.position %></td>
 				<td><%= page.subject_id %></td>
