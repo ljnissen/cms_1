@@ -1,5 +1,5 @@
 <% provide(:title, 'All sections') %>
-<%= link_to("Back to pages", {:controller => 'pages'}, class: 'btn btn-primary' ) %>
+<%= link_to("Back to pages", {:controller => 'pages', :subject_id => @page.subject_id }, class: 'btn btn-primary' ) %>
 
 
 	<div class="row">
