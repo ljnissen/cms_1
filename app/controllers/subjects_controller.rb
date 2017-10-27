@@ -4,10 +4,12 @@ class SubjectsController < ApplicationController
   before_action :admin_user
 
   def index
+    @users = User.all
     @subjects = Subject.order("position ASC")
   end
 
   def show
+    @user = User.find(params[:id])
     @subject = Subject.find(params[:id])
   end
 

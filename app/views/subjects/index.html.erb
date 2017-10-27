@@ -24,13 +24,18 @@
 				<td class="button">
 					<%= link_to("View pages", { :controller => 'pages', :subject_id => subject.id }, :class => 'btn btn-info') %>
 					<%= link_to("Show", { :action => 'show', :id => subject.id }, :class => 'btn btn-primary') %>
-					<%= link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'btn btn-success') %>
-					<%= link_to("Delete", subject_path(subject), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+						<%  if current_user.admin?  %>
+	
+							<%= link_to("Edit", {:action => 'edit', :id => subject.id}, :class => 'btn btn-success') %>
+							<%= link_to("Delete", subject_path(subject), method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+						<%  end %>
 				</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to("Add new subject", {:action => 'new' }, :class => 'btn btn-info') %>
+		<%  if current_user.admin?  %>
+			<%= link_to("Add new subject", {:action => 'new' }, :class => 'btn btn-info') %>
+		<%  end %>
 	</div>
 		
 
