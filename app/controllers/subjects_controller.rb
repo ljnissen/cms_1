@@ -19,9 +19,10 @@ class SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new(subject_params)
+    @subject.user = current_user
     if @subject.save
       flash[:success] = "New subject created."
-      redirect_to(:action => 'index')
+      redirect_to subjects_url
     else
       render('new')
     end

@@ -5,10 +5,7 @@
   <h1>Create subject</h1>
 <div class = "row">
 	<div class = "col-md-6 col-md-offset-3">
-	<%  if current_user.admin? && !current_user?(user) %>
-	| <%= link_to "delete", subject, method: :delete,
-									  data: { confirm: "Are you sure?"} %>
-	<%  end %>
+
 		<%= link_to("Back to list", {:action => 'index'}, class: 'btn btn-primary' ) %>
 
 		<%= form_for(:subject, :url => {:action => 'create'}) do |f| %>
