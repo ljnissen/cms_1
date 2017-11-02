@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
-  before_action :admin_user
+  before_action :admin_user, only: [:new, :edit, :update, :destroy]
   before_action :find_subject
   
   def index
@@ -33,6 +33,7 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
+    @subjects = Subject.order('position ASC')
   end
 
   def update
@@ -41,6 +42,7 @@ class PagesController < ApplicationController
       flash[:success] = "Page updated successfully."
       redirect_to(:action => 'show', :id => @page.id, :subject_id => @subject.id)
     else
+      @subjects = Subject.order('position ASC')
       render('edit')
     end
   end
@@ -51,7 +53,7 @@ class PagesController < ApplicationController
 
   def destroy
     @page = Page.find(params[:id]).destroy
-    flash[:success] = "Page destroyed successfully."
+    flash[:success] = "Page deleted successfully."
     redirect_to(:action => 'index', :subject_id => @subject.id)
   end
 

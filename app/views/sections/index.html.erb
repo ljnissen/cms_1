@@ -26,11 +26,15 @@
 				<td class="button">
 					
 					<%= link_to("Show", { :action => 'show', :id => section.id, :page_id => @page.id }, :class => 'btn btn-primary') %>
-					<%= link_to("Edit", {:action => 'edit', :id => section.id, :page_id => @page.id }, :class => 'btn btn-success') %>
-					<%= link_to("Delete", section_path(section), :page_id => @page.id, method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+					<%  if current_user.admin?  %>
+						<%= link_to("Edit", {:action => 'edit', :id => section.id, :page_id => @page.id }, :class => 'btn btn-success') %>
+						<%= link_to("Delete", section_path(section), :page_id => @page.id, method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+					<% end %>
 				</td>
 			</tr>
 			<% end %>
 		</table>
-		<%= link_to("Add new section", {:action => 'new', :page_id => @page.id}, :class => 'btn btn-info') %>
+		<%  if current_user.admin?  %>
+			<%= link_to("Add new section", {:action => 'new', :page_id => @page.id}, :class => 'btn btn-info') %>
+		<% end %>
 	</div>

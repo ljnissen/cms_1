@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
-  before_action :admin_user, only: [:edit, :update, :destroy]
+  before_action :admin_user, only: [:new, :edit, :update, :destroy]
 
   def index
     #@users = User.all
@@ -22,7 +22,6 @@ class SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new(subject_params)
-    @subject.user = current_user
     if @subject.save
       flash[:success] = "New subject created."
       redirect_to subjects_url
@@ -51,7 +50,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject = Subject.find(params[:id])
     @subject.destroy
-    flash[:success] = "Subject destroyed successfully."
+    flash[:success] = "Subject deleted successfully."
     redirect_to(:action => 'index')
   end
 

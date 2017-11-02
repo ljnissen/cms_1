@@ -1,7 +1,7 @@
 class SectionsController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
-  before_action :admin_user
+  before_action :admin_user, only: [:new, :edit, :update, :destroy]
   before_action :find_page
 
   def index
