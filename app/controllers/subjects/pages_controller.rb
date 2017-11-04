@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   # before_action :correct_user
   before_action :admin_user, only: [:new, :edit, :update, :destroy]
   before_action :find_subject
+
   
   def index
    # @pages = Page.order('position ASC')
@@ -49,12 +50,15 @@ class PagesController < ApplicationController
 
   def delete
     @page = Page.find(params[:id])
+    render 'delete'
   end
 
   def destroy
-    @page = Page.find(params[:id]).destroy
-    flash[:success] = "Page deleted successfully."
-    redirect_to(:action => 'index', :subject_id => @subject.id)
+    page = Page.find(params[:id])
+        page.destroy
+        flash[:success] = "Page deleted successfully."
+        redirect_to(:action => 'index', :subject_id => @subject.id)
+        
   end
 
   private

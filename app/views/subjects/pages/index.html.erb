@@ -33,7 +33,7 @@
 					<%= link_to("Show", { :action => 'show', :id => page.id, :subject_id => @subject.id }, :class => 'btn btn-primary') %>
 					<%  if current_user.admin?  %>
 						<%= link_to("Edit", {:action => 'edit', :id => page.id, :subject_id => @subject.id }, :class => 'btn btn-success') %>
-						<%= link_to("Delete", page_path(page), :subject_id => @subject.id, method: :delete, data: {confirm: 'Are you sure?' }, :class => 'btn btn-danger') %>
+						<%= link_to "Delete",  {:action => 'delete', :id => page.id, :subject_id => @subject.id}, method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-danger' %>
 					<% end %>
 				</td>
 			</tr>

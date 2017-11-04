@@ -29,13 +29,18 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
-  resources :subjects
-  resources :pages do
-    get :delete
+  resources :subjects do
+    
+      resources :pages, controller: 'subjects/pages'
+     
+
   end
+
+  #resources :pages
+
   resources :sections
 
-  
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
