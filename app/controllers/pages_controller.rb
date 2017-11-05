@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
-  before_action :admin_user, only: [:new, :edit, :update, :destroy]
-  before_action :find_subject
+  before_action :admin_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_subject, only: [:index, :show, :new, :create, :edit, :update, :delete]
 
   
   def index
@@ -64,7 +64,7 @@ class PagesController < ApplicationController
   private
 
   def page_params 
-      params.require(:page).permit(:name, :subject_id, :position, :permalink, :visible)
+      params.require(:page).permit(:name, :subject_id, :position, :permalink, :visible, subjects_attributes: [:name, :position, :visible ])
   end
 
 

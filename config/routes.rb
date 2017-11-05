@@ -29,12 +29,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
-  resources :subjects do
+  resources :subjects
     
-      resources :pages, controller: 'subjects/pages'
+  resources :pages
      
 
-  end
+
 
   #resources :pages
 

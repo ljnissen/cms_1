@@ -1,7 +1,7 @@
 class SubjectsController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
-  before_action :admin_user, only: [:new, :edit, :update, :destroy]
+  before_action :admin_user, only: [:show, :edit, :update, :destroy]
 
   def index
     #@users = User.all
@@ -56,7 +56,7 @@ class SubjectsController < ApplicationController
 
   private
   def subject_params
-    params.require(:subject).permit(:name, :position, :visible)
+    params.require(:subject).permit(:name, :position, :visible, pages_attributes: [:_destroy, :name, :subject_id, :position, :permalink, :visible])
   end
 
       # Before filters
