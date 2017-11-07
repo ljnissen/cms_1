@@ -1,14 +1,14 @@
 class PagesController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
-  before_action :admin_user, only: [:show, :edit, :update, :destroy]
-  before_action :find_subject, only: [:index, :show, :new, :create, :edit, :update, :delete]
+  before_action :admin_user, only: [:new, :edit, :update, :destroy]
+  before_action :find_subject
 
   
   def index
    # @pages = Page.order('position ASC')
-   @pages = Page.where(:subject_id => @subject.id).order("position ASC")
-   #@pages = @subject.pages.order("position ASC")
+   # @pages = Page.where(:subject_id => @subject.id).order("position ASC")
+   @pages = @subject.pages.order("position ASC")
 
   end
 

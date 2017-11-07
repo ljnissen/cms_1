@@ -2,10 +2,12 @@ class SectionsController < ApplicationController
   before_action :logged_in_user
   # before_action :correct_user
   before_action :admin_user, only: [:new, :edit, :update, :destroy]
-  before_action :find_page
+  before_action :find_page, only: [:index, :show, :new, :create, :edit, :update, :delete]
 
   def index
+
     @sections = Section.where(:page_id => @page.id).order('position ASC')
+    @pages = @page.subject.pages.order('position ASC')
   end
 
   def show
@@ -50,7 +52,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     @section.destroy
     flash[:success] = "Section destroyed successfully."
-    redirect_to(:action => 'index', :page_id => @page.id)
+    redirect_to(:back)
   end
 
   private
