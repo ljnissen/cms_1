@@ -17,7 +17,7 @@ gem 'bootstrap-sass', '3.3.7'
 
 gem 'puma',         '3.9.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -49,6 +49,8 @@ group :development do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  gem 'sqlite3'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
@@ -63,4 +65,8 @@ group :test do
 
 	# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 	gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+end
+
+group :production do
+	gem 'pg', '0.20.0'
 end
