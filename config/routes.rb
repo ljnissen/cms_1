@@ -30,11 +30,16 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :users
 
+  resources :sections
+  
   resources :pages
-  resources :subjects do
-    resources :pages
-  end
-   resources :sections
+  
+  resources :subjects #do
+    #resources :pages do
+    #  resources :sections
+    #end
+  #end
+
   
      
 
@@ -42,7 +47,7 @@ Rails.application.routes.draw do
 
   #resources :pages
 
-  resources :sections
+  #resources :sections
 
 
   

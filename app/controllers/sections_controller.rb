@@ -38,8 +38,9 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     if @section.update_attributes(section_params)
       flash[:success] = "Section updated successfully."
-      redirect_to(:action => 'show', :id => @section.id, :page_id => @page.id)
+      redirect_to(:action => 'show', :id => @section.id, :page_id => @section.page_id)
     else
+      @pages = Page.order('position ASC')
       render('edit')
     end
   end
